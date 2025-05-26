@@ -51,7 +51,9 @@ st.markdown(
     "2. **LLM refactor** (clean code)\n"
     "3. **AI summary**\n"
     "4. **Threat score** & **MITRE tags**\n"
-    "5. **Downloadable report**"
+    "5. **Downloadable report**\n"
+
+    "NOTE: The JavaScript deobfuscator is still in development and will be released soon."
 )
 
 # Sidebar for script type & input
