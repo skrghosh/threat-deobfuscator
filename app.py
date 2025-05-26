@@ -45,16 +45,16 @@ if can_analyze:
 # —————————————————————————————————————————————
 
 st.title("🕵️ Threat Deobfuscator")
-st.markdown(
-    "Upload or paste an obfuscated script and get:\n"
-    "1. **Static deobfuscation**\n"
-    "2. **LLM refactor** (clean code)\n"
-    "3. **AI summary**\n"
-    "4. **Threat score** & **MITRE tags**\n"
-    "5. **Downloadable report**\n"
+st.markdown("""
+Upload or paste an obfuscated script and get:
+1. **Static deobfuscation**
+2. **LLM refactor** (clean code)
+3. **AI summary**
+4. **Threat score** & **MITRE tags**
+5. **Downloadable report**
 
-    "NOTE: The JavaScript deobfuscator is still in development and will be released soon."
-)
+> **NOTE**: The JavaScript deobfuscator is still in development and will be released soon.
+""")
 
 # Sidebar for script type & input
 script_type = st.sidebar.selectbox("Script Language", ["PowerShell", "JavaScript"])
