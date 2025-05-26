@@ -1,0 +1,68 @@
+{
+  "categories": {
+    "execution": {
+      "severity": 3,
+      "ttps": ["T1059.001", "T1127"]
+    },
+    "obfuscation": {
+      "severity": 2,
+      "ttps": ["T1027"]
+    },
+    "networking": {
+      "severity": 2,
+      "ttps": ["T1071.001", "T1105"]
+    },
+    "persistence": {
+      "severity": 2,
+      "ttps": ["T1047", "T1053.005", "T1050"]
+    },
+    "defense_evasion": {
+      "severity": 2,
+      "ttps": ["T1562.001", "T1562.004", "T1564.008"]
+    }
+  },
+
+  "patterns": [
+    { "pattern": "\\bIEX\\b|\\bInvoke-Expression\\b",          "category": "execution" },
+    { "pattern": "New-Object\\s+ScriptBlock",                  "category": "execution" },
+    { "pattern": "Add-Type\\b",                                "category": "execution" },
+    { "pattern": "Reflection\\.Assembly::Load",                "category": "execution" },
+    { "pattern": "\\.Invoke\\(",                               "category": "execution" },
+    { "pattern": "Start-Process|Start-Job",                    "category": "execution" },
+    { "pattern": "cmd\\.exe\\s+/c",                            "category": "execution" },
+    { "pattern": "-EncodedCommand\\s+\\S+",                    "category": "obfuscation" },
+    { "pattern": "FromBase64String",                           "category": "obfuscation" },
+    { "pattern": "\\[char\\]\\d+",                             "category": "obfuscation" },
+    { "pattern": "String\\.fromCharCode",                      "category": "obfuscation" },
+    { "pattern": "Compression\\.(GzipStream|DeflateStream)",   "category": "obfuscation" },
+    { "pattern": "\\bXOR\\b",                                  "category": "obfuscation" },
+    { "pattern": "\\[Net\\.Sockets\\.TCPClient\\]",            "category": "networking" },
+    { "pattern": "Invoke-WebRequest|Invoke-RestMethod",        "category": "networking" },
+    { "pattern": "\\bbitsadmin\\b",                            "category": "networking" },
+    { "pattern": "\\bcertutil\\b.*-urlcache",                  "category": "networking" },
+    { "pattern": "\\\\\\\\[A-Za-z0-9_.$]+\\\\[A-Za-z0-9_.$]+",  "category": "networking" },
+    { "pattern": "New-PSSession|Enter-PSSession",              "category": "networking" },
+    { "pattern": "Register-PSSessionConfiguration",            "category": "networking" },
+    { "pattern": "Register-WmiEvent|Unregister-Event",         "category": "persistence" },
+    { "pattern": "Get-WmiObject|Invoke-WmiMethod",             "category": "persistence" },
+    { "pattern": "Register-ScheduledTask|schtasks\\s+/create", "category": "persistence" },
+    { "pattern": "New-Service|sc\\.exe\\s+create",             "category": "persistence" },
+    { "pattern": "Set-Service|sc\\.exe\\s+config",              "category": "persistence" },
+    { "pattern": "New-ItemProperty|Set-ItemProperty",           "category": "persistence" },
+    { "pattern": "New-PSDrive|Remove-PSDrive",                  "category": "persistence" },
+    { "pattern": "\\bGet-ChildItem\\b.*\\bRecurse\\b",          "category": "defense_evasion" },    
+    { "pattern": "\\bRemove-Item\\b.*\\bForce\\b",              "category": "defense_evasion" },
+    { "pattern": "Set-ExecutionPolicy\\s+Bypass",              "category": "defense_evasion" },
+    { "pattern": "-WindowStyle\\s+Hidden",                     "category": "defense_evasion" },
+    { "pattern": "-NoProfile\\b",                              "category": "defense_evasion" },
+    { "pattern": "-NoLogo\\b",                                 "category": "defense_evasion" },
+    { "pattern": "-NonInteractive\\b",                         "category": "defense_evasion" },
+    { "pattern": "-EncodedCommand\\b",                         "category": "defense_evasion" },
+    { "pattern": "\\bObfuscate\\b",                             "category": "defense_evasion" },
+    { "pattern": "\\bInvoke-Obfuscation\\b",                    "category": "defense_evasion" },
+    { "pattern": "\\bInvoke-Expression\\s+([A-Za-z0-9_]+)",    "category": "defense_evasion" },
+    { "pattern": ".*amsi.*",                                   "category": "defense_evasion" },
+    { "pattern": "netsh\\s+advfirewall",                       "category": "defense_evasion" },
+    { "pattern": "\\$env:[A-Za-z_][A-Za-z0-9_]+",               "category": "defense_evasion" }
+  ]
+}

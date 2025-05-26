@@ -1,0 +1,24 @@
+{
+  "categories": {
+    "execution": {
+      "severity": 3,
+      "ttps": ["T1059.007"]
+    },
+    "obfuscation": {
+      "severity": 2,
+      "ttps": ["T1027"]
+    },
+    "networking": {
+      "severity": 2,
+      "ttps": ["T1105"]
+    }
+  },
+  "patterns": [
+    { "pattern": "\\beval\\s*\\(",            "category": "execution" },
+    { "pattern": "atob\\s*\\(",               "category": "obfuscation" },
+    { "pattern": "btoa\\s*\\(",               "category": "obfuscation" },
+    { "pattern": "String\\.fromCharCode",     "category": "obfuscation" },
+    { "pattern": "fetch\\s*\\(",              "category": "networking" },
+    { "pattern": "XMLHttpRequest",            "category": "networking" }
+  ]
+}
