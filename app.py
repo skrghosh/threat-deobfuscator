@@ -82,7 +82,7 @@ if analyze:
 
         # 4) LLM Refactor (collapsed)
         if llm_part:
-            with st.expander("🤖 LLM Refactor Suggestion", expanded=False):
+            with st.expander("🤖 LLM Refactor Suggestion", expanded=True):
                 st.code(llm_part, language="powershell")
 
         # 5) AI Summary
