@@ -39,6 +39,7 @@ else:
 can_analyze = bool(api_key)
 if can_analyze:
     openai.api_key = api_key
+    os.environ["OPENAI_API_KEY"] = api_key
 
 # —————————————————————————————————————————————
 # 2) Main UI
